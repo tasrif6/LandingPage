@@ -18,7 +18,7 @@ const HomePage = () => {
         <h1 className="text-emerald-800">🌙 RAMADAN KAREEM 2026 </h1>
       </div>
       
-      <div className="items-right justify-right">
+      <div className="items-center justify-center">
         <h4 className="font-bold">
           <div>
           <Button>Dark Mode</Button>

@@ -3,7 +3,7 @@ import Navbar from "@/components/Home/Navbar";
 
 export default function Home() {
   return (   
-   <div className="h-screen grid grid-cols-[260px_1fr_300px] bg-[#f6f7f5]">
+   <div className="min-h-screen items-center justify-center bg-white dark:bg-black text-black dark:text-white transition-all duration-300 grid grid-cols-[260px_1fr_300px]">
        {/* Navigation bar */}
        <Navbar/>
        <main className="col-span-full">       
