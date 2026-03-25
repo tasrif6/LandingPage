@@ -23,25 +23,34 @@ export default function LoginPage(){
   })
 
   const handleSubmit = async () => {
-    if (!formData.email && !formData.password) {
-      setError("All fields are required to fill") 
+    setError("")
+    setSuccess("")
+
+    if (!formData.email || !formData.password) {
+      setError("All fields are required")
       return
     }
+
     try {
       const res = await axios.post("/api/login", formData)
-      if (res.status ===200 ){
+
+      if (res.status === 200) {
         setSuccess("Login Successful")
         router.push("/")
         return
       }
-    } catch (error) {
-      if (axios.isAxiosError(error)){
-        setError(error.response?.data?.message || "Something went wrong")
-      }
-    }
-    setError("Email or Password didn't match, try again!")
-  }
 
+      setError(res.data?.message || "Login failed")
+      return
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || "Something went wrong")
+      } else {
+        setError("Something went wrong")
+      }
+      return
+    }
+  }
   
   return (
     <div className="flex items-center justify-center h-screen py-2 px-4 m-4 ">

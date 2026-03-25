@@ -1,8 +1,10 @@
-// import DBConnect from "@/lib/db";
+import DBConnect from "@/lib/db";
 import { NextRequest } from "next/server";
 import User from "@/models/User";
 
 export async function POST(request: NextRequest){
+    await DBConnect();
+
     const {email, password, conf_password} = await request.json();
     if (!email || !password || !conf_password){
         return new Response(JSON.stringify({message: "All fields are mandatory to be filled"}), {status: 400})
