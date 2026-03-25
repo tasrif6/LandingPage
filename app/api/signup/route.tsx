@@ -1,4 +1,4 @@
-import DBConnect from "@/lib/db";
+// import DBConnect from "@/lib/db";
 import { NextRequest } from "next/server";
 import User from "@/models/User";
 
