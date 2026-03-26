@@ -59,7 +59,7 @@ export function RightPanel() {
   const [selectedFont, setSelectedFont] = useState("KFGQ");
 
   return (
-    <div className="relative overflow-hidden h-full">
+    <div className="relative overflow-hidden h-full bg-black border-l">
 
       {/* MAIN PANEL */}
       <div className="flex flex-col space-y-2">

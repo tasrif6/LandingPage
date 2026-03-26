@@ -2,16 +2,30 @@
 import { RightPanel } from "@/components/RightPanel/page";
 import { SideNavbar } from "@/components/SideNavbar/page";
 import CategoryPage from "../Category/categoryPage";
+import Duas from "../Category/DuasImpDuas/page";
+import DuasNavbarPage from "@/components/DuasNavbar/DuasNavbarPage";
 
 export default function DuasPage() {
   return (
-    <div className="absolute">
-        <SideNavbar/>
-        <div className="ml-20">SearchCategory 
+    <div className="min-h-screen bg-slate-900 text-white">
+      <SideNavbar />
+      <div className="pt-[12vh] pl-18">
+        <DuasNavbarPage />
+      </div>
+
+      <div className="flex">
+        <div className="w-80">
+          <CategoryPage />
         </div>
-        <div className="ml-20"><CategoryPage/></div>
-        <div className="right-0 fixed overflow-hidden mt-10 border border-emerald-700 h-full py-12 z-50 bg-gray-900 w-72"><RightPanel /></div>
-        
+
+        <div className="flex-1 bg-black">
+          <Duas />
+        </div>
+
+        <aside className="w-72 border-l border-gray-800">
+          <RightPanel />
+        </aside>
+      </div>
     </div>
-  )
+  );
 }
