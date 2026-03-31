@@ -59,7 +59,7 @@ export function RightPanel() {
   const [selectedFont, setSelectedFont] = useState("KFGQ");
 
   return (
-    <div className="relative overflow-hidden h-full bg-black border-l">
+    <div className="relative overflow-hidden h-full dark:bg-black bg-white text-black dark:text-white border-l">
 
       {/* MAIN PANEL */}
       <div className="flex flex-col space-y-2">
@@ -67,7 +67,7 @@ export function RightPanel() {
         {/* LANGUAGE SETTINGS */}
         <div className="w-full">
           <button
-            className="flex items-center justify-between px-6 py-2 w-full hover:bg-black"
+            className="flex items-center justify-between px-6 py-2 w-full dark:hover:bg-black "
             onClick={() => toggleSection("language")}
           >
             <div className="flex gap-4 items-center cursor-pointer">
@@ -116,7 +116,7 @@ export function RightPanel() {
         {/* FONT SETTINGS */}
         <div className="w-full">
           <button
-            className="flex items-center justify-between px-6 py-2 w-full hover:bg-black cursor-pointer"
+            className="flex items-center justify-between px-6 py-2 w-full dark:hover:bg-black cursor-pointer"
             onClick={() => toggleSection("font")}
           >
             <Type
@@ -199,7 +199,7 @@ export function RightPanel() {
         {/* VIEW SETTINGS */}
         <div className="w-full">
           <button
-            className="flex items-center justify-between px-6 py-2 w-full hover:bg-black cursor-pointer"
+            className="flex items-center justify-between px-6 py-2 w-full dark:hover:bg-black cursor-pointer"
             onClick={() => toggleSection("view")}
           >
             <CopyCheck className="text-emerald-800" />
@@ -261,7 +261,7 @@ export function RightPanel() {
         {/* APPEARANCE */}
         <div className="w-full">
           <button
-            className="flex items-center justify-between px-6 py-2 w-full hover:bg-black cursor-pointer"
+            className="flex items-center justify-between px-6 py-2 w-full dark:hover:bg-black cursor-pointer"
             onClick={() => toggleSection("appearance")}
           >
             <AlignStartVertical className="text-emerald-800" />
@@ -296,7 +296,7 @@ export function RightPanel() {
 
       {/* LANGUAGE PANEL */}
       <div
-        className={`absolute top-0 w-full h-full bg-gray-900 transition-transform duration-300
+        className={`absolute top-0 w-full h-full dark:bg-gray-900 bg-white transition-transform duration-300
         ${showLangPanel ? "translate-x-0" : "translate-x-full"}`}
       >
 
@@ -342,7 +342,7 @@ export function RightPanel() {
 
       {/* FONT PANEL */}
       <div
-        className={`absolute top-0 w-full h-full bg-gray-900 transition-transform duration-300
+        className={`absolute top-0 w-full h-full dark:bg-gray-900 bg-white transition-transform duration-300
         ${showFontPanel ? "translate-x-0" : "translate-x-full"}`}
       >
 

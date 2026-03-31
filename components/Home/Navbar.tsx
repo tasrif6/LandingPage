@@ -8,7 +8,7 @@ import { ThemeToggle } from '@/app/theme-toggle';
 
 export default function Navbar() {
   return (
-    <div className="overflow-hidden fixed top-0 left-0 w-full h-[12vh] flex items-center px-4 z-10000 transition-all duration-300">
+    <div className="overflow-hidden fixed top-0 left-0 w-full h-[12vh] flex border items-center px-4 z-10000 transition-all duration-300">
       <Image src="/logo.jpg" alt="logo" height={40} width={40} />
 
       <div className="relative">

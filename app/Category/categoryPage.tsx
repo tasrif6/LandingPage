@@ -45,7 +45,7 @@ const CategoryPage = () => {
             const hasSubCategories = getSubCategoryLinks(catlink.title).length > 0;
 
             return (
-              <div key={catlink.id} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+              <div key={catlink.id} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-auto">
                 {/* Category Button */}
                 <button
                   onClick={() => {
@@ -79,8 +79,8 @@ const CategoryPage = () => {
                             }
                             className={`w-full text-left p-3 rounded transition text-sm font-medium flex items-start gap-2 ${
                               isSubActive
-                                ? "bg-emerald-600 text-white"
-                                : "text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
+                                ? "text-black dark:text-emerald-700 cursor-pointer"
+                                : "text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 cursor-pointer"
                             }`}
                           >
                             <ChevronDown
