@@ -57,16 +57,16 @@ const Duas = () => {
               <div
                 key={sectionId}
                 id={sectionId}
-                className="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden transition-all"
+                className=" rounded-lg overflow-hidden transition-all"
               >
                 <div className="w-full p-4 flex items-start justify-between transition bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800">
                   <div className="text-left">
-                    <h2 className="font-semibold text-lg mb-1">{content.title}</h2>
+                    <h2 className="font-semibold text-lg mb-1">{sectionId}: {content.title}</h2>
                     
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-gray-950 border-t border-gray-300 dark:border-gray-700 space-y-4">
+                <div className="p-6 bg-white dark:bg-gray-950 space-y-4">
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                       Overview
@@ -77,11 +77,11 @@ const Duas = () => {
                   </div>
 
                   {content.dua && (
-                    <div className="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg border border-emerald-200 dark:border-emerald-800">
-                      <h3 className="text-lg font-semibold text-emerald-900 dark:text-emerald-300 mb-2">
+                    <div className="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg ">
+                      <h3 className="text-lg font-semibold text-white mb-2">
                         Dua
                       </h3>
-                      <p className="text-emerald-800 dark:text-emerald-200 text-lg leading-relaxed italic">
+                      <p className="dark:text-white text-black text-lg leading-relaxed italic">
                         {content.dua}
                       </p>
                       <p className={`text-sm ${isActive ? 'text-emerald-100' : 'text-gray-500'}`}>
@@ -91,8 +91,8 @@ const Duas = () => {
                   )}
 
                   {content.translation && (
-                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-                      <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-300 mb-2">
+                    <div className=" dark:bg-black bg-white p-4 rounded-lg ">
+                      <h3 className="text-lg font-semibold dark:text-white text-black mb-2">
                         Translation
                       </h3>
                       <p className="text-blue-800 dark:text-blue-200 leading-relaxed">
@@ -102,8 +102,8 @@ const Duas = () => {
                   )}
 
                   {content.note && (
-                    <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
-                      <p className="text-amber-900 dark:text-amber-200">
+                    <div className="dark:bg-black bg-white p-4 rounded-lg">
+                      <p className="dark:text-white text-black">
                         <span className="font-semibold">Note:</span> {content.note}
                       </p>
                       
