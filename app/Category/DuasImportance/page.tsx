@@ -1,7 +1,7 @@
 'use client';
 import { CategoryLinks } from '@/constant/Category';
-import { useState } from 'react';
-import CategoryPage from '../categoryPage';
+import { useEffect, useState } from 'react';
+import SectionNavbarPage from '@/components/DuasNavbar/SectionNavbarPage';
 
 const DuasContent = {
   1: {
@@ -36,16 +36,16 @@ const DuasContent = {
 const Duas = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
-  // useEffect(() => {
-  //   const hash = window.location.hash.replace('#', '');
-  //   if (hash) {
-  //     setActiveSection(hash);
-  //     setTimeout(() => {
-  //       const element = document.getElementById(hash);
-  //       element?.scrollIntoView({ behavior: 'smooth' });
-  //     }, 0);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      setActiveSection(hash);
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 0);
+    }
+  }, []);
   const [activeCategory, setActiveCategory ] = useState<string | null>(null)
   const [activeSubCategory, setActiveSubCategory ] = useState<string | null> (null);
   
@@ -63,10 +63,11 @@ const Duas = () => {
               <div
                 key={sectionId}
                 id={sectionId}
-                className=" rounded-lg overflow-hidden transition-all"
+                className=" rounded-2xl overflow-hidden transition-all"
               >
                 <div className="w-full p-4 flex items-start justify-between transition bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800">
                   <div className="text-left">
+                    <h1 className="flex"><SectionNavbarPage /></h1>
                     <h2 className="font-semibold text-lg mb-1 text-emerald-700">Section- {sectionId}: {content.title}</h2>
                     
                   </div>
@@ -74,41 +75,41 @@ const Duas = () => {
 
                 <div className="p-6 bg-white dark:bg-gray-950 space-y-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    <h3 className="text-3xl font-semibold text-gray-900 dark:text-white mb-2">
                       Overview
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <p className="text-gray-700 dark:text-gray-300 text-2xl">
                       {content.description}
                     </p>
                   </div>
 
                   {content.dua && (
                     <div className="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg ">
-                      <h3 className="text-lg font-semibold text-white mb-2">
+                      <h3 className="text-2xl font-semibold text-white mb-2">
                         Dua
                       </h3>
-                      <p className="dark:text-white text-black text-lg leading-relaxed italic">
+                      <p className="dark:text-white text-black text-2xl leading-relaxed italic">
                         {content.dua}
                       </p>
-                      <p className={`text-sm ${isActive ? 'text-emerald-100' : 'text-gray-500'}`}>
+                      <p className={`text-medium ${isActive ? 'text-emerald-100' : 'text-gray-500'}`}>
                       {content.reference}
                     </p>
                     </div>
                   )}
 
                   {content.translation && (
-                    <div className=" dark:bg-black bg-white p-4 rounded-lg ">
-                      <h3 className="text-lg font-semibold dark:text-white text-black mb-2">
+                    <div className=" dark:bg-black bg-white p-4 rounded-2xl ">
+                      <h3 className="text-3xl font-semibold dark:text-white text-black mb-2">
                         Translation
                       </h3>
-                      <p className="text-blue-800 dark:text-blue-200 leading-relaxed">
+                      <p className=" text-2xl dark:text-white text-black">
                         {content.translation}
                       </p>
                     </div>
                   )}
 
                   {content.note && (
-                    <div className="dark:bg-black bg-white p-4 rounded-lg">
+                    <div className="dark:bg-black bg-white p-4 rounded-2xl">
                       <p className="dark:text-white text-black">
                         <span className="font-semibold">Note:</span> {content.note}
                       </p>
