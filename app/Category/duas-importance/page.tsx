@@ -2,6 +2,7 @@
 import { CategoryLinks } from '@/constant/Category';
 import { useEffect, useState } from 'react';
 import SectionNavbarPage from '@/components/DuasNavbar/SectionNavbarPage';
+import Link from 'next/link';
 
 const DuasContent = {
   1: {
@@ -10,7 +11,8 @@ const DuasContent = {
     reference: 'Surah Al-Fatir 35:15',
     description:
       'All human beings depend on Allah for their welfare and prevention of evil in various matters of their religion and world. Allah says (interpretation of the meaning): O mankind, you are those in need of Allah, while Allah is the Free of need, the Praiseworthy.',
-  },
+    url: "/duas-categories/duas-importance/1"
+    },
   2: {
     id: 2,
     title: 'The most important thing to ask Allah for',
@@ -21,6 +23,7 @@ const DuasContent = {
     dua:'Laa ilaaha illallahu wahdahu laa sharika lahu, lahul-mulku wa lahul-hamdu wa huwa alaa kulli shain.',
     translation:
       'There is none worthy of worship except Allah alone. He is the Dominion and to Him be all praise, and He is able to do all things.',
+    url: "/duas-categories/duas-importance/2"
   },
   3: {
     id: 3,
@@ -32,6 +35,7 @@ const DuasContent = {
     translation:
       'None has the right to be worshipped but Allah alone. His is the dominion and His is the praise, and He is Able to do all things.',
     note: 'The Prophet said: The person who says this 10 times would have freed four people from slavery.',
+    url: "/duas-categories/duas-importance/3"
   },
 };
 
@@ -39,14 +43,27 @@ const Duas = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      setActiveSection(hash);
-      setTimeout(() => {
-        const element = document.getElementById(hash);
-        element?.scrollIntoView({ behavior: 'smooth' });
-      }, 0);
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        setActiveSection(hash);
+        requestAnimationFrame(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
+    };
+
+    // Handle initial hash on mount
+    if (window.location.hash) {
+      handleHashChange();
     }
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const [activeSubCategory, setActiveSubCategory ] = useState<string | null> (null);
@@ -56,8 +73,8 @@ const Duas = () => {
     setActiveSubCategory(match ? match.title : null);
   }
   return (
-    <div className="min-h-screen bg-white dark:bg-black p-4 flex ml-12 overflow-hidden">
-      <div className="w-3xl flex flex-col">
+    <div className="min-h-screen w-full bg-white dark:bg-black p-4 flex ml-auto overflow-hidden">
+      <div className="w-full flex flex-col">
         <div className="space-y-4 flex-1 ml-12">
           {Object.entries(DuasContent).map(([sectionId, content]: any) => {
             const isActive = activeSection === sectionId;
@@ -67,15 +84,16 @@ const Duas = () => {
                 id={sectionId}
                 className=" rounded-2xl overflow-hidden transition-all"
               >
-                <div className="w-full p-4 flex items-start justify-between transition bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800">
+                <div className="w-full p-4 items-start justify-between transition text-black dark:text-white">
                   <div className="text-left">
-                    <h1 className="flex"><SectionNavbarPage /></h1>
-                    <h2 className="font-semibold text-lg mb-1 text-emerald-700">Section- {sectionId}: {content.title}</h2>
-                    
+                    <Link key={content.id} href={`#${sectionId}`} scroll={false}>
+                    {/* <h1 className="absolute"><SectionNavbarPage /></h1> */}
+                    <h2 className="font-semibold text-lg mb-1 text-emerald-700 ">Section-{sectionId}: {content.title}</h2>
+                    </Link>
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-gray-950 space-y-4">
+                <div className="p-6 bg-white dark:bg-black space-y-4">
                   <div>
                     <h3 className="text-3xl font-semibold text-gray-900 dark:text-white mb-2">
                       Overview
@@ -98,7 +116,7 @@ const Duas = () => {
                   )}
 
                   {content.translation && (
-                    <div className=" dark:bg-black bg-white p-4 rounded-2xl ">
+                    <div className=" dark:bg-black bg-white px-4 rounded-2xl ">
                       <h3 className="text-3xl font-semibold dark:text-white text-black mb-2">
                         Translation
                       </h3>
@@ -109,7 +127,7 @@ const Duas = () => {
                   )}
 
                   {content.note && (
-                    <div className="dark:bg-black bg-white p-4 rounded-2xl">
+                    <div className="dark:bg-black bg-white px-4 rounded-2xl">
                       <p className="dark:text-white text-black text-3xl">
                         {content.note}
                       </p>

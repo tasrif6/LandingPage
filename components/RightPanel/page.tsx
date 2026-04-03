@@ -59,7 +59,7 @@ export function RightPanel() {
   const [selectedFont, setSelectedFont] = useState("KFGQ");
 
   return (
-    <div className="relative overflow-hidden h-full dark:bg-black bg-white text-black dark:text-white border-l">
+    <div className=" overflow-hidden fixed h-full w-80 dark:bg-black bg-white text-black dark:text-white border">
 
       {/* MAIN PANEL */}
       <div className="flex flex-col space-y-2">
@@ -70,7 +70,7 @@ export function RightPanel() {
             className="flex items-center justify-between px-6 py-2 w-full dark:hover:bg-black "
             onClick={() => toggleSection("language")}
           >
-            <div className="flex gap-4 items-center cursor-pointer">
+            <div className="flex gap-10 items-center cursor-pointer">
               <Globe
                 className={
                   activeSection === "language"
@@ -220,10 +220,10 @@ export function RightPanel() {
           </button>
 
           {activeSection === "view" && (
-            <div className="px-6 py-4 space-y-4 bg-slate-50 dark:bg-slate-900">
+            <div className="px-6 py-4 space-y-4 bg-black">
 
               <div className="flex justify-between">
-                <Label>Show Arabic</Label>
+                <Label className="text-md">Show Arabic</Label>
                 <Switch
                   checked={showArabic}
                   onCheckedChange={setShowArabic}
@@ -231,7 +231,7 @@ export function RightPanel() {
               </div>
 
               <div className="flex justify-between">
-                <Label>Show Translation</Label>
+                <Label className="text-md">Show Translation</Label>
                 <Switch
                   checked={showTranslation}
                   onCheckedChange={setShowTranslation}
@@ -239,7 +239,7 @@ export function RightPanel() {
               </div>
 
               <div className="flex justify-between">
-                <Label>Show Transliteration</Label>
+                <Label className="text-md">Show Transliteration</Label>
                 <Switch
                   checked={showTransliteration}
                   onCheckedChange={setShowTransliteration}
@@ -247,7 +247,7 @@ export function RightPanel() {
               </div>
 
               <div className="flex justify-between">
-                <Label>Show Reference</Label>
+                <Label className="text-md">Show Reference</Label>
                 <Switch
                   checked={showReference}
                   onCheckedChange={setShowReference}

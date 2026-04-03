@@ -18,7 +18,7 @@ const DuasNavbarPage = () => {
             </Link>
         </div>
         <div className="right-0 ml-auto space-x-4">
-            <Input type="text" placeholder="Search...." className="w-10  text-black dark:text-white font-medium ml-auto"/>
+            <Input type="text" placeholder="Search..." className="w-10  text-black dark:text-white font-medium ml-auto"/>
             {/* Right — button */}
             <Button className="text-white bg-green-500 cursor-pointer mr-20  hover:bg-green-700">
                 Support Us <ArrowUpRight />

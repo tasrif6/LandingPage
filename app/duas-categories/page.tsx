@@ -22,7 +22,7 @@ export default function DuasPage() {
           <Duas />
         </div>
 
-        <aside className="w-72 border-l border-gray-800">
+        <aside className="w-80 border border-gray-800">
           <RightPanel />
         </aside>
       </div>

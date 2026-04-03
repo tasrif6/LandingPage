@@ -1,15 +1,21 @@
 import { useState } from 'react';
-import Link from 'next/link';
 import { CategoryLinks, DuasImportanceLinks } from '@/constant/Category';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import { DuasSubCat01 } from '@/constant/Duas';
 import { ChevronDown } from 'lucide-react';
-import Duas from './duas-importance/page';
 
 const CategoryPage = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeSubCategory, setActiveSubCategory] = useState<string | null>(null);
+
+  // Scroll to dua section
+  const handleScrollToDua = (duaId: number) => {
+    const element = document.getElementById(String(duaId));
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   // Map categories to their subcategories
   const getSubCategoryLinks = (category: string) => {
@@ -96,16 +102,16 @@ const CategoryPage = () => {
                           {isSubActive && duas.length > 0 && (
                             <div className="mt-2 ml-6 space-y-2">
                               {duas.map((dua) => (
-                                <Link
+                                <button
                                   key={dua.id}
-                                  href={`${catlink.url}/${dua.id}`}
-                                  className="block p-3 rounded-lg hover:bg-emerald-50 dark:hover:bg-gray-800 transition bg-white dark:bg-gray-800"
+                                  onClick={() => handleScrollToDua(dua.id)}
+                                  className="block cursor-pointer w-full text-left p-3 rounded-lg hover:bg-emerald-50 dark:hover:bg-gray-800 transition bg-white dark:bg-gray-800"
                                 >     
                                       <h4 className="font-medium text-gray-900 dark:text-white text-sm mb-1">
                                         {dua.title}
                                       </h4>
                                       
-                                </Link>
+                                </button>
                               ))}
                             </div>
                           )}
