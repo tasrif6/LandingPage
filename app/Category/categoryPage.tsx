@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { CategoryLinks, DuasImportanceLinks } from '@/constant/Category';
-import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import { DuasSubCat01 } from '@/constant/Duas';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Search } from 'lucide-react';
 
 const CategoryPage = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -39,12 +38,18 @@ const CategoryPage = () => {
 
   return (
     <div className="w-90 fixed flex h-screen bg-white dark:bg-black px-12 ml-10">
-      <div className="space-y-4">
-        <Input
-          type="text"
-          placeholder="🔍 Search..."
-          className="mx-auto mb-6 border-gray-900 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-700 dark:placeholder-gray-400"
-        />
+      <div className="space-y-4">          
+          <div className="mt-4 flex items-center gap-2 px-3 py-2 border border-gray-200 dark:border-gray-600 hover:dark:border-emerald-700 rounded-xl bg-white dark:bg-black overflow-hidden w-auto cursor-pointer">
+                <Search
+                    className="shrink-0 dark:text-white text-black"
+                    size={20}
+                />
+                <input
+                    type="search"
+                    placeholder="Search..."
+                    className="bg-transparent border-none outline-none text-md text-white dark:text-white dark:placeholder:text-white placeholder:text-black w-full"
+                />
+          </div>
 
         {/* Categories */}
         <div className="space-y-2">
