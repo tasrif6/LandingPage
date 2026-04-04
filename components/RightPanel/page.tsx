@@ -12,10 +12,11 @@ import {
 import { Switch } from "../ui/switch";
 import { Label } from "../ui/label";
 import { useState } from "react";
-import { ThemeToggle } from "@/app/theme-toggle";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "../ui/button";
 import { Slider } from "../ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { LightDark } from "../light-dark";
 
 export function RightPanel() {
 
@@ -284,10 +285,9 @@ export function RightPanel() {
           </button>
 
           {activeSection === "appearance" && (
-            <div className="px-6 py-4 flex gap-2">
-              <Button><ThemeToggle /></Button>
-              <Button><ThemeToggle /></Button>
-              <Button><ThemeToggle /></Button>
+            <div className="px-6 py-4 flex gap-2 ml-auto">
+              <ThemeToggle />
+              <LightDark />
             </div>
           )}
         </div>

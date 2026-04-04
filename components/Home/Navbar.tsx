@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input';
-import { ThemeToggle } from '@/app/theme-toggle';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Navbar() {
   return (
@@ -40,7 +40,7 @@ export default function Navbar() {
             <span className="transition-transform duration-300 top-full group-hover:-translate-y-full hover:text-emerald-900 ">LogIn</span>
           </Link>
         </Button>
-        <button className=" border-emerald-900"><ThemeToggle /></button>
+        <ThemeToggle />
         <Input
           type="text"
           placeholder="Search..."
