@@ -44,7 +44,7 @@ export default function Navbar() {
         <Input
           type="text"
           placeholder="Search..."
-          className="w-48 border-rounded border-emerald-900 bg-white dark:bg-black dark:text-white dark:border-emerald-600 dark:placeholder-gray-400"
+          className="w-48 border rounded-2xl border-emerald-900 bg-white dark:bg-black dark:text-white dark:border-emerald-600 dark:placeholder-gray-400"
         />
       </div>
     </div>

@@ -5,7 +5,7 @@ import Link from "next/link"
 const BlogItemPage = ({ image, title, category, description, id}) => {
   return (
     <div key={id} className="max-w-85 sm:max-w-75 hover:shadow-[-7px_7px_0px] cursor-pointer">
-        <Link href={`/blog/${id}`}>
+        <Link href={`/blogs/${id}`}>
             <Image src={image} alt="" width={400} height={500} className="border outline-none"/>
             <p className="ml-4 m-2 inline-block bg-black text-white dark:bg-white dark:text-black text-md px-2 py-1">{category}</p>
         
