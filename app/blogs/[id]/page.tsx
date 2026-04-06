@@ -49,4 +49,4 @@ const BlogsIdPage = ({ params }: { params: Promise<{ id: string }> }) => {
   )
 }
 
-export default BlogsIdPage
+export default BlogsIdPage  
