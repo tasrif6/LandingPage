@@ -5,9 +5,7 @@ import Navbar from "@/components/Home/Navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-const BlogsIdPage = ({ params }: { params: Promise<{ id: string }> }) => {
-  // ✅ Tell TypeScript what the data will look like
-    type BlogType = {
+type BlogType = {
       id: number;
       title: string;
       description: string;
@@ -17,7 +15,8 @@ const BlogsIdPage = ({ params }: { params: Promise<{ id: string }> }) => {
       author: string;
       author_img: any;
     };
-
+const BlogsIdPage = ({ params }: { params: Promise<{ id: string }> }) => {    
+  
   const [data, setData] = useState<BlogType | null>(null);
   const { id } = use(params)  
 
